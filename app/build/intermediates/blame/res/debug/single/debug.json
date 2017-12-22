@@ -1468,6 +1468,10 @@
         "source": "C:\\Users\\Tilan\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\01137d7bcafabb0eeba2975ca40160d5\\res\\drawable-mdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
+        "merged": "C:\\Users\\Tilan\\Desktop\\MobApp\\PopularMovies\\Popular-Movies-Stage-1\\app\\build\\intermediates\\res\\merged\\debug\\layout_recyclerview_movie.xml.flat",
+        "source": "C:\\Users\\Tilan\\Desktop\\MobApp\\PopularMovies\\Popular-Movies-Stage-1\\app\\src\\main\\res\\layout\\recyclerview_movie.xml"
+    },
+    {
         "merged": "C:\\Users\\Tilan\\Desktop\\MobApp\\PopularMovies\\Popular-Movies-Stage-1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\Tilan\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\01137d7bcafabb0eeba2975ca40160d5\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
     },
