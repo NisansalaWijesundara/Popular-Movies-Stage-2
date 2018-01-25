@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapter.Movi
 
     public static final String LOG_TAG = MainActivity.class.getName();
     private static final int MOVIE_LOADER_ID = 0;
-    private final String movie_image__url = "https://api.themoviedb.org/3/movie/550?api_key=0090c4fcfc45046c3af17ef9b93c4b6d";
+    private final String movie_image__url = "https://api.themoviedb.org/3/movie/550?api_key=";
     private RecyclerView mRecyclerView;
     private ImageAdapter mImageAdapter;
     private TextView mErrorMessageDisplay;
