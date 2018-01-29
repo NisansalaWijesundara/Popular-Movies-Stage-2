@@ -1,9 +1,10 @@
 package com.example.android.popularmovies_stage1;
 
-import android.app.LoaderManager;
-import android.content.AsyncTaskLoader;
-import android.content.Loader;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.LoaderManager;
+import android.support.v4.content.AsyncTaskLoader;
+import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapter.Movi
     private TextView mErrorMessageDisplay;
     private ProgressBar mLoadingIndicator;
     private List<Image> movieList;
+    private Handler handler;
 
     /**
      * public MainActivity(RecyclerView mRecyclerView, TextView mErrorMessageDisplay, ProgressBar mLoadingIndicator, ImageAdapter.MovieAdapterOnClickHandler handler, ArrayList<Image> movieList) {
@@ -49,8 +51,8 @@ public class MainActivity extends AppCompatActivity implements ImageAdapter.Movi
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ///mImageAdapter = new ImageAdapter(getApplicationContext(), R.layout.movie_posters, movieList, handler);
-        mImageAdapter = new ImageAdapter(this, (ImageAdapter.MovieAdapterOnClickHandler) new ArrayList<Image>());
+        mImageAdapter = new ImageAdapter(getApplicationContext(), R.layout.movie_posters, movieList, handler);
+        //mImageAdapter = new ImageAdapter(this, (ImageAdapter.MovieAdapterOnClickHandler) new ArrayList<Image>());
 
 
         mRecyclerView.setAdapter(mImageAdapter);
@@ -64,28 +66,28 @@ public class MainActivity extends AppCompatActivity implements ImageAdapter.Movi
         Bundle bundleForLoader = null;
 
 
-        getSupportLoaderManager().initLoader(loaderId, bundleForLoader, (android.support.v4.app.LoaderManager.LoaderCallbacks<Object>) callback);
+        getSupportLoaderManager().initLoader(loaderId, bundleForLoader, callback);
     }
 
 
-    //@SuppressLint("StaticFieldLeak")
     @Override
     public Loader<List<Image>> onCreateLoader(int id, final Bundle args) {
         return new AsyncTaskLoader<List<Image>>(this) {
 
-            List<Image> mMovieList = null;
+     /*private List<Image>mMovieList ;
 
-            @Override
+            @Override//error
             protected void onStartLoading() {
-                if (mMovieList != null) {
+               if (mMovieList != null) {
                     deliverResult(mMovieList);
+
                 } else {
                     mLoadingIndicator.setVisibility(View.VISIBLE);
                     forceLoad();
                 }
-            }
+            };*/
 
-            @Override//error
+            @Override
             public List<Image> loadInBackground() {
 
 
@@ -103,7 +105,10 @@ public class MainActivity extends AppCompatActivity implements ImageAdapter.Movi
 
                 return null;
             }
+
+
         };
+
     }
 
     @Override
@@ -125,6 +130,8 @@ public class MainActivity extends AppCompatActivity implements ImageAdapter.Movi
 
     }
 }
+
+
 
 
 

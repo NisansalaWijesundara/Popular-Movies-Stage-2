@@ -37,7 +37,7 @@ public final class NetworkUtils {
      * Return a list of {@link Image} objects that has been built up from
      * parsing the given JSON response.
      */
-    private static List<Image> extractFeatureFromJson(String movieJSON) {
+    public static List<Image> extractFeatureFromJson(String movieJSON) {
         // If the JSON string is empty or null, then return early.
         if (TextUtils.isEmpty(movieJSON)) {
             return null;
@@ -66,6 +66,7 @@ public final class NetworkUtils {
                 movie.setVoteAvg(currentMovie.getString("vote_average"));
                 movie.setSynopsis(currentMovie.getString("overview"));
                 movie.setImage("http://image.tmdb.org/t/p/w185/" + currentMovie.getString("poster_path"));
+                movie.setImage(currentMovie.getString("poster_path"));
                 images.add(movie);
             }
         } catch (JSONException e) {

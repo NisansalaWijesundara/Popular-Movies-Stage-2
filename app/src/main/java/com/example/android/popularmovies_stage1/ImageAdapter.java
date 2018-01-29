@@ -1,6 +1,7 @@
 package com.example.android.popularmovies_stage1;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -56,7 +57,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         }
     }*/
 
-    private final MovieAdapterOnClickHandler handler;
+    //private final MovieAdapterOnClickHandler handler;
     int resource;
     LayoutInflater vi;
     private ArrayList<String> imageURLs = new ArrayList<>(15);
@@ -76,8 +77,11 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
     }*/
 
     public ImageAdapter(Context context, MovieAdapterOnClickHandler handler) {
-        this.handler = handler;
+        //this.handler = handler;
         activity_context = context;
+    }
+
+    public ImageAdapter(Context applicationContext, int movie_posters, List<Image> movieList, Handler handler) {
     }
 
     void setImageURLs(List<Image> movieList) {
@@ -113,7 +117,8 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
 
         } else {
             String currentImageURL = imageURLs.get(position);
-            Picasso.with(activity_context).load(currentImageURL).into(holder.moviePoster);
+            Picasso.with(activity_context).load(currentImageURL).resize(40, 40).into(holder.moviePoster);
+
         }
     }
 
@@ -144,7 +149,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         public void onClick(View view) {
             int adapterPosition = getAdapterPosition();
             Image dataForThisMovie = movieList.get(adapterPosition);
-            handler.onClick(dataForThisMovie);
+            //handler.onClick(dataForThisMovie);
         }
     }
 }
