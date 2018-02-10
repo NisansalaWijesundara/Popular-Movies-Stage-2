@@ -57,15 +57,15 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         }
     }*/
 
-    //private final MovieAdapterOnClickHandler handler;
     int resource;
     LayoutInflater vi;
     private ArrayList<String> imageURLs = new ArrayList<>(15);
     private Context activity_context;
-    private ArrayList<Image> movieList;
+    private List<Image> movieList;
+    private String url;
     private String LOG_TAG;
-
-
+    private Handler handler;
+    //private final ImageAdapterOnClickHandler mClickHandler;
 
    /* public ImageAdapter(Context applicationContext, int movie_posters, ArrayList<Image> movieList, MovieAdapterOnClickHandler handler) {
         vi = (LayoutInflater) applicationContext
@@ -76,17 +76,31 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         this.resource = movie_posters;
     }*/
 
-    public ImageAdapter(Context context, MovieAdapterOnClickHandler handler) {
-        //this.handler = handler;
-        activity_context = context;
+    public ImageAdapter(Context applicationContext, List<Image> images, String movie_image__url) {
+        activity_context = applicationContext;
+        movieList = images;
+        url = movie_image__url;
+        //this.mClickHandler = handler;
+        Log.v("ImageAdapter", "ImageAdapter");
     }
 
-    public ImageAdapter(Context applicationContext, int movie_posters, List<Image> movieList, Handler handler) {
+    private Context getContext() {
+        return activity_context;
     }
+    ///public ImageAdapter(MainActivity mainActivity, ImageAdapterOnClickHandler mClickHandler) {
+    //activity_context = applicationContext;
+    //resource = movie_posters;
+    //this.movieList = movieList;
+    //this.handler = handler;
+    //this.mClickHandler = mClickHandler;
+    // this.mClickHandler = mClickHandler;
+
+    //}
+
 
     void setImageURLs(List<Image> movieList) {
 
-        this.movieList = (ArrayList<Image>) movieList;
+        this.movieList = movieList;
         if (movieList == null) {
             Log.e(LOG_TAG, "movieList passes as null in Adapter.");
         } else {
@@ -95,6 +109,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
                 imageURLs.add(i, movieList.get(i).getImage());
             }
             notifyDataSetChanged();
+            Log.v("ImageAdapter", "setImageURLs");
         }
     }
 
@@ -103,10 +118,13 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         Context context = viewGroup.getContext();
         int layoutIdForListItem = R.layout.movie_posters;
         LayoutInflater inflater = LayoutInflater.from(context);
-        boolean shouldAttachToParentImmediately = false;
+        //  boolean shouldAttachToParentImmediately = false;
 
-        View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
+        View view = inflater.inflate(layoutIdForListItem, viewGroup, false);
+
+        Log.v("ImageAdapter", "onCreateViewHolder");
         return new ImageAdapterViewHolder(view);
+
     }
 
     @Override
@@ -114,10 +132,11 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
 
         if (imageURLs == null) {
             holder.moviePoster.setImageResource(R.mipmap.ic_launcher);
-
+            Log.v("ImageAdapter", "onBindViewHolder");
         } else {
             String currentImageURL = imageURLs.get(position);
             Picasso.with(activity_context).load(currentImageURL).resize(40, 40).into(holder.moviePoster);
+            Log.v("ImageAdapter", "onBindViewHolder2");
 
         }
     }
@@ -127,29 +146,33 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         if (imageURLs == null) {
             return 1;
         }
-
+        Log.v("ImageAdapter", "getItemCount");
         return imageURLs.size();
     }
 
-    public interface MovieAdapterOnClickHandler {
+    public interface ImageAdapterOnClickHandler {
         void onClick(Image thisMovie);
     }
 
-    public class ImageAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public class ImageAdapterViewHolder extends RecyclerView.ViewHolder {
+        //implements View.OnClickListener {
 
         public ImageView moviePoster;
 
         public ImageAdapterViewHolder(View itemView) {
             super(itemView);
             moviePoster = itemView.findViewById(R.id.movie_poster);
-            itemView.setOnClickListener(this);
+            //itemView.setOnClickListener(this);
+            Log.v("ImageAdapter", "ImageAdapterViewHolder");
         }
 
-        @Override
+      /*  @Override
         public void onClick(View view) {
             int adapterPosition = getAdapterPosition();
-            Image dataForThisMovie = movieList.get(adapterPosition);
-            //handler.onClick(dataForThisMovie);
-        }
+            Image movieData = movieList.get(adapterPosition);
+            //mClickHandler.onClick(movieData);
+            Log.v("ImageAdapter","onClick");
+
+        }*/
     }
 }

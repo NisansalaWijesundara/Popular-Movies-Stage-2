@@ -39,40 +39,45 @@ public final class NetworkUtils {
      */
     public static List<Image> extractFeatureFromJson(String movieJSON) {
         // If the JSON string is empty or null, then return early.
+
+        Log.v("NetworkUtils", "extractFeatureFromJson");
         if (TextUtils.isEmpty(movieJSON)) {
             return null;
         }
 
         // Create an empty ArrayList to start adding images to
         List<Image> images = new ArrayList<>();
-
+        Log.v("NetworkUtils", "extractFeatureFromJson2");
         // Try to parse the JSON response string. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
         // Catch the exception so the app doesn't crash, and print the error message to the logs.
 
 
         try {
+            Log.v("NetworkUtils", "extractFeatureFromJson3");
             JSONObject baseJsonResponse = new JSONObject(movieJSON);
             JSONArray resultsArray = baseJsonResponse.getJSONArray("results");
-
+            Log.v("NetworkUtils", "extractFeatureFromJson4.1");
             for (int i = 0; i < resultsArray.length(); i++) {
-
+                Log.v("NetworkUtils", "extractFeatureFromJson4.2");
                 JSONObject currentMovie = resultsArray.getJSONObject(i);
 
                 Image movie = new Image();
-
+                Log.v("NetworkUtils", "extractFeatureFromJson4.3");
                 movie.setTitle(currentMovie.getString("title"));
                 movie.setReleaseDate(currentMovie.getString("release_date"));
                 movie.setVoteAvg(currentMovie.getString("vote_average"));
                 movie.setSynopsis(currentMovie.getString("overview"));
                 movie.setImage("http://image.tmdb.org/t/p/w185/" + currentMovie.getString("poster_path"));
                 movie.setImage(currentMovie.getString("poster_path"));
+                Log.v("NetworkUtils", "extractFeatureFromJson4.4");
                 images.add(movie);
+                Log.v("NetworkUtils", "extractFeatureFromJson4.5");
             }
         } catch (JSONException e) {
             Log.e("QueryUtils", "Problem parsing the JSON results", e);
         }
-
+        Log.v("NetworkUtils", "extractFeatureFromJson5");
         return images;
     }
 
@@ -94,7 +99,7 @@ public final class NetworkUtils {
      */
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
-
+        Log.v("NetworkUtils", "makeHttpRequest");
         // If the URL is null, then return early.
         if (url == null) {
             return jsonResponse;
@@ -127,7 +132,9 @@ public final class NetworkUtils {
                 inputStream.close();
             }
         }
+        Log.v("NetworkUtils", "makeHttpRequest2");
         return jsonResponse;
+
     }
 
     /**
@@ -151,7 +158,7 @@ public final class NetworkUtils {
 
     public static List<Image> fetchMovieData(String requestUrl) throws JSONException {
 
-
+        Log.v("NetworkUtils", "fetchMovieData");
         // Create URL object
         URL url = createUrl(requestUrl);
 
@@ -159,13 +166,14 @@ public final class NetworkUtils {
         String jsonResponse = null;
         try {
             jsonResponse = makeHttpRequest(url);
+            Log.v("NetworkUtils", "fetchMovieData2");
         } catch (IOException e) {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
         // Extract relevant fields from the JSON response and create a list of images
         List<Image> images = extractFeatureFromJson(jsonResponse);
-
+        Log.v("NetworkUtils", "fetchMovieData3");
 
         return images;
     }

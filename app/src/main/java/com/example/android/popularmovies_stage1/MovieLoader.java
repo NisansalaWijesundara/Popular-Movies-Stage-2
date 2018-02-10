@@ -25,6 +25,7 @@ public class MovieLoader extends AsyncTaskLoader<List<Image>> {
         mUrl = url;
     }
 
+
     @Override
     public List<Image> loadInBackground() {
         if (mUrl == null) {
