@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
     private TextView mErrorMessageDisplay;
     private ProgressBar mLoadingIndicator;
     //private Handler handler;
+    private TextView movie_name;
 
     /**
      * public MainActivity(RecyclerView mRecyclerView, TextView mErrorMessageDisplay, ProgressBar mLoadingIndicator, ImageAdapter.MovieAdapterOnClickHandler handler, ArrayList<Image> movieList) {
@@ -201,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
                 Log.v("AsyncTaskLoader", "onPostExecute2");
                 //mImageAdapter.notifyDataSetChanged();
                 //mLoadingIndicator.setVisibility(View.GONE);
-                //Log.v("AsyncTaskLoader","onPostExecute3");
+                Log.v("AsyncTaskLoader", "onPostExecute3");
             } else {
                 return;
             }
