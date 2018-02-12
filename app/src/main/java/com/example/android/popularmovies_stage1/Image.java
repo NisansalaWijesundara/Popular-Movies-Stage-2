@@ -19,8 +19,8 @@ public class Image {
         Log.v("Image", "Image Model");
     }
 
-    public Image(String title, String releaseDate, String voteAvg, String synopsis, String image) {
-
+    public Image(String title) {
+//, String releaseDate, String voteAvg, String synopsis, String image
         this.title = title;
         this.releaseDate = releaseDate;
         this.voteAvg = voteAvg;
@@ -35,8 +35,9 @@ public class Image {
         return title;
     }
 
-    public void setTitle(String title) {
+    public String setTitle(String title) {
         this.title = title;
+        return title;
     }
 
     public String getReleaseDate() {

@@ -59,7 +59,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
 
     int resource;
     LayoutInflater vi;
-    private ArrayList<String> imageURLs = new ArrayList<>(15);
+    private ArrayList<String> imageURLs = new ArrayList<>(30);
     private Context activity_context;
     private List<Image> movieList;
     private String url;
@@ -80,6 +80,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         activity_context = applicationContext;
         movieList = images;
         url = movie_image__url;
+
         //this.mClickHandler = handler;
         Log.v("ImageAdapter", "ImageAdapter");
     }
@@ -107,6 +108,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
             imageURLs.clear();
             for (int i = 0; i < movieList.size(); i++) {
                 imageURLs.add(i, movieList.get(i).getImage());
+
             }
             notifyDataSetChanged();
             Log.v("ImageAdapter", "setImageURLs");
@@ -134,8 +136,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
             holder.moviePoster.setImageResource(R.mipmap.ic_launcher);
             Log.v("ImageAdapter", "onBindViewHolder");
         } else {
+
             String currentImageURL = imageURLs.get(position);
-            Picasso.with(activity_context).load(currentImageURL).resize(40, 40).into(holder.moviePoster);
+            //holder.movieName.setText(movieList.get(position).getTitle());
+            Picasso.with(activity_context).load(currentImageURL).into(holder.moviePoster);
             Log.v("ImageAdapter", "onBindViewHolder2");
 
         }
@@ -144,7 +148,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
     @Override
     public int getItemCount() {
         if (imageURLs == null) {
-            return 1;
+            return 0;
         }
         Log.v("ImageAdapter", "getItemCount");
         return imageURLs.size();
@@ -158,10 +162,12 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         //implements View.OnClickListener {
 
         public ImageView moviePoster;
+        //public TextView movieName;
 
         public ImageAdapterViewHolder(View itemView) {
             super(itemView);
             moviePoster = itemView.findViewById(R.id.movie_poster);
+            //movieName = itemView.findViewById(R.id.movieName);
             //itemView.setOnClickListener(this);
             Log.v("ImageAdapter", "ImageAdapterViewHolder");
         }
