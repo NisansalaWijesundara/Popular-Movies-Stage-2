@@ -1,5 +1,7 @@
 package com.example.android.popularmovies_stage1;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -21,14 +23,14 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
 
     public static final String LOG_TAG = MainActivity.class.getName();
     private static final int MOVIE_LOADER_ID = 0;
-    private static final String movie_image__url = "http://api.themoviedb.org/3/movie/popular?api_key=";
+    private static final String movie_image__url = "http://api.themoviedb.org/3/movie/popular?api_key=0090c4fcfc45046c3af17ef9b93c4b6d";
     private static List<Image> mMovieList;
     private RecyclerView mRecyclerView;
     private ImageAdapter mImageAdapter;
     private MovieLoader mMovieLoader;
     private TextView mErrorMessageDisplay;
     private ProgressBar mLoadingIndicator;
-    //private Handler handler;
+
     private TextView movie_name;
 
     /**
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         //mImageAdapter = new ImageAdapter(this,R.layout.movie_posters, movieList,this);
         //mImageAdapter = new ImageAdapter(this, (ImageAdapter.ImageAdapterOnClickHandler) new ArrayList<Image>());
 
-        mImageAdapter = new ImageAdapter(this, mMovieList, movie_image__url);
+        mImageAdapter = new ImageAdapter(this, mMovieList, movie_image__url, this);
         mRecyclerView.setAdapter(mImageAdapter);
 
 
@@ -78,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         Log.v("MainActivity", "onCreateFinish2");
+
     }
 
     private void loadMovieDetails(String movie_image__url) {
@@ -142,10 +145,22 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
 
     @Override
     public void onClick(Image thisMovie) {
-
+        Context context = this;
+        Class destinationClass = MovieDetails.class;
+        Intent intentToStartDetailActivity = new Intent(context, destinationClass);
+        Bundle bundle = new Bundle();
+        bundle.putString("POSTER_NAME", thisMovie.getTitle());
+        bundle.putString("POSTER", thisMovie.getImage());
+        bundle.putString("RELEASE_DATE", thisMovie.getReleaseDate());
+        bundle.putString("RATE", thisMovie.getVoteAvg());
+        bundle.putString("DESCRIPTION", thisMovie.getSynopsis());
+        intentToStartDetailActivity.putExtras(bundle);
+        startActivity(intentToStartDetailActivity);
+        Log.v("MainActivity", "onClick");
     }
-/*
-        @Override
+
+
+     /*   @Override
     public void onLoadFinished(Loader<List<Image>> loader, List<Image> data) {
         // Hide loading indicator because the data has been loaded
         mLoadingIndicator.setVisibility(View.INVISIBLE);

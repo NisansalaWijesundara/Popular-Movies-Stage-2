@@ -57,15 +57,15 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         }
     }*/
 
+    private final ImageAdapterOnClickHandler mClickHandler;
     int resource;
     LayoutInflater vi;
     private ArrayList<String> imageURLs = new ArrayList<>(30);
     private Context activity_context;
-    private List<Image> movieList;
+    private List<Image> movies;
     private String url;
     private String LOG_TAG;
     private Handler handler;
-    //private final ImageAdapterOnClickHandler mClickHandler;
 
    /* public ImageAdapter(Context applicationContext, int movie_posters, ArrayList<Image> movieList, MovieAdapterOnClickHandler handler) {
         vi = (LayoutInflater) applicationContext
@@ -76,12 +76,12 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         this.resource = movie_posters;
     }*/
 
-    public ImageAdapter(Context applicationContext, List<Image> images, String movie_image__url) {
+    public ImageAdapter(Context applicationContext, List<Image> images, String movie_image__url, ImageAdapterOnClickHandler handler) {
         activity_context = applicationContext;
-        movieList = images;
+        movies = images;
         url = movie_image__url;
 
-        //this.mClickHandler = handler;
+        mClickHandler = handler;
         Log.v("ImageAdapter", "ImageAdapter");
     }
 
@@ -101,7 +101,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
 
     void setImageURLs(List<Image> movieList) {
 
-        this.movieList = movieList;
+        this.movies = movieList;
         if (movieList == null) {
             Log.e(LOG_TAG, "movieList passes as null in Adapter.");
         } else {
@@ -117,6 +117,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
 
     @Override
     public ImageAdapterViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+
         Context context = viewGroup.getContext();
         int layoutIdForListItem = R.layout.movie_posters;
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -140,6 +141,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
             String currentImageURL = imageURLs.get(position);
             //holder.movieName.setText(movieList.get(position).getTitle());
             Picasso.with(activity_context).load(currentImageURL).into(holder.moviePoster);
+
             Log.v("ImageAdapter", "onBindViewHolder2");
 
         }
@@ -155,30 +157,34 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
     }
 
     public interface ImageAdapterOnClickHandler {
-        void onClick(Image thisMovie);
+
+        void onClick(Image movieData);
+
     }
 
-    public class ImageAdapterViewHolder extends RecyclerView.ViewHolder {
-        //implements View.OnClickListener {
+    public class ImageAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+
 
         public ImageView moviePoster;
-        //public TextView movieName;
+
 
         public ImageAdapterViewHolder(View itemView) {
             super(itemView);
             moviePoster = itemView.findViewById(R.id.movie_poster);
-            //movieName = itemView.findViewById(R.id.movieName);
-            //itemView.setOnClickListener(this);
+
+            itemView.setOnClickListener(this);
             Log.v("ImageAdapter", "ImageAdapterViewHolder");
         }
 
-      /*  @Override
+        @Override
         public void onClick(View view) {
             int adapterPosition = getAdapterPosition();
-            Image movieData = movieList.get(adapterPosition);
-            //mClickHandler.onClick(movieData);
+            Image movieData = movies.get(adapterPosition);
+            mClickHandler.onClick(movieData);
+
+            //mClickHandler.onClick(view, getAdapterPosition());
             Log.v("ImageAdapter","onClick");
 
-        }*/
+        }
     }
 }

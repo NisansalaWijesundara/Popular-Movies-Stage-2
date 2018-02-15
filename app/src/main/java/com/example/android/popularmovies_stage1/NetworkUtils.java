@@ -68,7 +68,7 @@ public final class NetworkUtils {
                 movie.setReleaseDate(currentMovie.getString("release_date"));
                 movie.setVoteAvg(currentMovie.getString("vote_average"));
                 movie.setSynopsis(currentMovie.getString("overview"));
-                movie.setImage("http://image.tmdb.org/t/p/w300/" + currentMovie.getString("backdrop_path"));
+                movie.setImage("http://image.tmdb.org/t/p/w342/" + currentMovie.getString("poster_path"));
                 Log.v("NetworkUtils", "extractFeatureFromJson4.4");
 
                 images.add(movie);
