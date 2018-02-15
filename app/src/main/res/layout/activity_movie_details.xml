@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="start"
                 android:text="Synopsis"
-                android:textAlignment="viewStart"
+                android:textAlignment="textStart"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
 
