@@ -244,6 +244,10 @@
         "source": "C:\\Users\\Tilan\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\afa1a4ca1856c2a5b54cdb74b9fe1d0b\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
     },
     {
+        "merged": "C:\\Users\\Tilan\\Desktop\\MobApp\\PopularMovies\\Popular-Movies-Stage-1\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_movie_details.xml.flat",
+        "source": "C:\\Users\\Tilan\\Desktop\\MobApp\\PopularMovies\\Popular-Movies-Stage-1\\app\\src\\main\\res\\layout\\activity_movie_details.xml"
+    },
+    {
         "merged": "C:\\Users\\Tilan\\Desktop\\MobApp\\PopularMovies\\Popular-Movies-Stage-1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\Tilan\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\afa1a4ca1856c2a5b54cdb74b9fe1d0b\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
     },

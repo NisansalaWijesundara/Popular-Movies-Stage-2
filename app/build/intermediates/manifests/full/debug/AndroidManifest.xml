@@ -27,6 +27,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.android.popularmovies_stage1.MovieDetails"
+            android:parentActivityName="com.example.android.popularmovies_stage1.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
 
         <meta-data
             android:name="android.support.VERSION"
