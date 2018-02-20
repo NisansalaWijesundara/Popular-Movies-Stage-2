@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-32:12
+ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-33:12
 MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Tilan\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\cf394ebedd7ff15f51b52d9a8e9daa78\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Tilan\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\01137d7bcafabb0eeba2975ca40160d5\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\Tilan\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.0.2.aar\2f373915a8eee222adee2c3b296ac5ab\AndroidManifest.xml:2:1-11:12
@@ -16,20 +16,20 @@ MERGED from [com.android.support:support-media-compat:26.1.0] C:\Users\Tilan\.gr
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Tilan\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\c9bcccab5321a3e81033879dd3daed97\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Tilan\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\afa1a4ca1856c2a5b54cdb74b9fe1d0b\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Tilan\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\691497608918e11b67ffe652d8d239d7\AndroidManifest.xml:17:1-30:12
-INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-32:12
-INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-32:12
+INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-33:12
+INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-33:12
 	package
 		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:3:5-55
 		INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-32:12
+		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-33:12
 		INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-32:12
+		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:1-33:12
 		INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:2:11-69
@@ -38,7 +38,7 @@ ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\ap
 	android:name
 		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:6:22-64
 application
-ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:8:5-30:19
+ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:8:5-31:19
 MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Tilan\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\cf394ebedd7ff15f51b52d9a8e9daa78\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:recyclerview-v7:26.1.0] C:\Users\Tilan\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-26.1.0.aar\cf394ebedd7ff15f51b52d9a8e9daa78\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\Tilan\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\01137d7bcafabb0eeba2975ca40160d5\AndroidManifest.xml:25:5-29:19
@@ -90,17 +90,19 @@ ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\ap
 	android:name
 		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:19:27-74
 activity#com.example.android.popularmovies_stage1.MovieDetails
-ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:23:9-29:20
+ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:23:9-30:20
 	android:parentActivityName
 		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:25:13-55
+	android:label
+		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:26:13-42
 	android:name
 		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:24:13-41
 meta-data#android.support.PARENT_ACTIVITY
-ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:26:13-28:49
+ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:27:13-29:49
 	android:value
-		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:28:17-46
+		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:29:17-46
 	android:name
-		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:27:17-63
+		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:28:17-63
 uses-sdk
 INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml
