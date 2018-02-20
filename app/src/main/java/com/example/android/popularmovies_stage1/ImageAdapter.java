@@ -76,10 +76,10 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         this.resource = movie_posters;
     }*/
 
-    public ImageAdapter(Context applicationContext, List<Image> images, String movie_image__url, ImageAdapterOnClickHandler handler) {
+    public ImageAdapter(Context applicationContext, ImageAdapterOnClickHandler handler) {
         activity_context = applicationContext;
-        movies = images;
-        url = movie_image__url;
+        //movies = images;
+        // url = movie_image__url;
 
         mClickHandler = handler;
         Log.v("ImageAdapter", "ImageAdapter");

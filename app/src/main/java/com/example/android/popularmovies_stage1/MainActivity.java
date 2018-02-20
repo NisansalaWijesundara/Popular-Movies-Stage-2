@@ -8,6 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,7 +26,9 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
 
     public static final String LOG_TAG = MainActivity.class.getName();
     private static final int MOVIE_LOADER_ID = 0;
-    private static final String movie_image__url = "http://api.themoviedb.org/3/movie/popular?api_key=0090c4fcfc45046c3af17ef9b93c4b6d";
+    private static final String movie_image__url = "";
+    private static final String topRated_movies = "";
+    private static final String popular_movies = "";
     private static List<Image> mMovieList;
     private RecyclerView mRecyclerView;
     private ImageAdapter mImageAdapter;
@@ -59,7 +64,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         //mImageAdapter = new ImageAdapter(this,R.layout.movie_posters, movieList,this);
         //mImageAdapter = new ImageAdapter(this, (ImageAdapter.ImageAdapterOnClickHandler) new ArrayList<Image>());
 
-        mImageAdapter = new ImageAdapter(this, mMovieList, movie_image__url, this);
+        mImageAdapter = new ImageAdapter(this, this);
         mRecyclerView.setAdapter(mImageAdapter);
 
 
@@ -75,12 +80,13 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         //getSupportLoaderManager().initLoader(loaderId, bundleForLoader,callback).forceLoad();
 
         Log.v("MainActivity", "onCreateFinish");
-        loadMovieDetails(movie_image__url);
+
         // mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         Log.v("MainActivity", "onCreateFinish2");
 
+        loadMovieDetails(movie_image__url);
     }
 
     private void loadMovieDetails(String movie_image__url) {
@@ -178,6 +184,36 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
      public Loader<List<Image>> onCreateLoader(int id, Bundle args) {
          return new FetchMovieData(this);
      }*/
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.selection, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+
+        switch (item.getItemId()) {
+            case R.id.popular:
+                loadMovieDetails(popular_movies);
+                return true;
+
+
+            case R.id.topRated:
+                loadMovieDetails(topRated_movies);
+                return true;
+
+
+            default:
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     class MovieData extends AsyncTask<String, Void, List<Image>> {
         public MovieData() {
             mMovieList = new ArrayList<Image>();
@@ -196,14 +232,13 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
             }
             try {
                 Log.v("AsyncTaskLoader", "loadInBackground");
-                String posterURL = new String(movie_image__url);
+                String posterURL = url[0];
                 return NetworkUtils.fetchMovieData(posterURL);
             } catch (JSONException e) {
                 e.printStackTrace();
                 Log.v("AsyncTaskLoader", "loadInBackground2");
                 return null;
             }
-            //
 
 
         }
@@ -223,9 +258,11 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
             }
         }
     }
-
-
 }
+
+
+
+
 
 
 
