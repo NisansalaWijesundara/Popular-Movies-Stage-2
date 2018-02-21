@@ -1,10 +1,10 @@
 package com.example.android.popularmovies_stage1;
 
-import android.util.Log;
-
 /**
  * Created by Nisansala on 12/24/2017.
- * The com.example.android.popularmovies_stage1.Image class to store movie poster image URL
+ * The com.example.android.popularmovies_stage1.
+ *
+ * Image class to store movie poster's properties
  */
 
 public class Image {
@@ -16,17 +16,6 @@ public class Image {
     private String image;
 
     public Image() {
-        Log.v("Image", "Image Model");
-    }
-
-    public Image(String title) {
-//, String releaseDate, String voteAvg, String synopsis, String image
-        this.title = title;
-        this.releaseDate = releaseDate;
-        this.voteAvg = voteAvg;
-        this.synopsis = synopsis;
-
-        this.image = image;
 
     }
 

@@ -11,6 +11,8 @@ import com.squareup.picasso.Picasso;
 
 /**
  * Created by Nisansala on 12/28/2017.
+ *
+ * Displays the details of the clicked movie poster.
  */
 
 public class MovieDetails extends AppCompatActivity {
@@ -24,6 +26,7 @@ public class MovieDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
 
