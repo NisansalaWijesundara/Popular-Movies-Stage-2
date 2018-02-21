@@ -9,8 +9,22 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb936426-4940-4b5b-a2b5-d4590252ab21" name="Default" comment="">
+    <list default="true" id="eb936426-4940-4b5b-a2b5-d4590252ab21" name="Default" comment="Update">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/example/android/popularmovies_stage1/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/com/example/android/popularmovies_stage1/MainActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/debug.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dexBuilder/debug/__content__.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" afterPath="$PROJECT_DIR$/app/build/outputs/logs/manifest-merger-debug-report.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/android/popularmovies_stage1/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/android/popularmovies_stage1/MainActivity.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,51 +51,36 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/popularmovies_stage1/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+            <state relative-caret-position="136">
+              <caret line="31" column="100" lean-forward="false" selection-start-line="31" selection-start-column="100" selection-end-line="31" selection-end-column="100" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6804#6805#0" expanded="true" />
-                <element signature="e#6863#6864#0" expanded="true" />
-                <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+                <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <file leaf-file-name="activity_main.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+            <state relative-caret-position="305">
+              <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="android-manifest">
-            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="ImageAdapter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/popularmovies_stage1/ImageAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
+            <state relative-caret-position="1139">
               <caret line="79" column="8" lean-forward="false" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
               <folding />
             </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="selection.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/selection.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
           </provider>
         </entry>
       </file>
@@ -110,7 +109,7 @@
       <file leaf-file-name="NetworkUtils.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/popularmovies_stage1/NetworkUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
+            <state relative-caret-position="918">
               <caret line="70" column="102" lean-forward="false" selection-start-line="70" selection-start-column="91" selection-end-line="70" selection-end-column="102" />
               <folding />
             </state>
@@ -1908,9 +1907,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
@@ -1923,19 +1919,9 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Popular-Movies-Stage-1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1948,12 +1934,12 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="popularmovies_stage1" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -1964,20 +1950,19 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="manifests" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="settings.editor.selected.configurable" value="android.sdk-updates" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ud851-Sunshine-student/S02.02-Solution-Menus" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../ud851-Sunshine-student/S05.01-Solution-AsyncTaskLoader" />
     <property name="device.picker.selection" value="Nexus_5X_API_25" />
   </component>
   <component name="RunDashboard">
@@ -2063,7 +2048,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519161348301" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519224112243" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2111,7 +2096,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519161348301" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519224112244" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2143,27 +2128,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2294,7 +2258,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519161348304" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519224112247" />
       </method>
     </configuration>
     <list size="1">
@@ -2414,7 +2378,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519161307515</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Update">
+      <created>1519161379991</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1519161379991</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2443,7 +2414,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.28373703" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28373703" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2460,14 +2431,14 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <MESSAGE value="Update changes" />
-    <MESSAGE value="Update" />
     <MESSAGE value="fix a bug" />
     <MESSAGE value="Modify the layout" />
     <MESSAGE value="Add detail layout" />
     <MESSAGE value="Load movie details" />
     <MESSAGE value="Modify layout" />
     <MESSAGE value="Add menus" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add menus" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -2484,9 +2455,7 @@
           <caret line="189" column="37" lean-forward="false" selection-start-line="189" selection-start-column="37" selection-end-line="189" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+            <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -2529,9 +2498,7 @@
           <caret line="82" column="45" lean-forward="false" selection-start-line="82" selection-start-column="45" selection-end-line="82" selection-end-column="45" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+            <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -2566,9 +2533,7 @@
           <caret line="81" column="70" lean-forward="false" selection-start-line="81" selection-start-column="70" selection-end-line="81" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+            <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -2603,9 +2568,7 @@
           <caret line="81" column="70" lean-forward="false" selection-start-line="81" selection-start-column="70" selection-end-line="81" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+            <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -2640,9 +2603,7 @@
           <caret line="81" column="70" lean-forward="false" selection-start-line="81" selection-start-column="70" selection-end-line="81" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+            <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -2677,9 +2638,7 @@
           <caret line="214" column="13" lean-forward="false" selection-start-line="214" selection-start-column="13" selection-end-line="214" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+            <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -2690,9 +2649,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+            <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -2719,9 +2676,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+            <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -2732,9 +2687,7 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+            <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>
@@ -2770,13 +2723,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/movie_posters.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="6" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/ic_launcher_background.xml">
@@ -2808,13 +2761,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_movie_details.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="73" column="48" lean-forward="false" selection-start-line="73" selection-start-column="48" selection-end-line="73" selection-end-column="48" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-26/android/view/MenuItem.java">
@@ -2859,20 +2812,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/popularmovies_stage1/ImageAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
+        <state relative-caret-position="1139">
           <caret line="79" column="8" lean-forward="false" selection-start-line="79" selection-start-column="8" selection-end-line="79" selection-end-column="8" />
           <folding />
         </state>
@@ -2880,26 +2822,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/popularmovies_stage1/NetworkUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
+        <state relative-caret-position="918">
           <caret line="70" column="102" lean-forward="false" selection-start-line="70" selection-start-column="91" selection-end-line="70" selection-end-column="102" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/selection.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
           <caret line="3" column="51" lean-forward="false" selection-start-line="3" selection-start-column="51" selection-end-line="3" selection-end-column="51" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
+        <state relative-caret-position="289">
           <caret line="23" column="40" lean-forward="false" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
           <folding />
         </state>
@@ -2908,15 +2850,24 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="19" column="37" lean-forward="false" selection-start-line="19" selection-start-column="37" selection-end-line="19" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/popularmovies_stage1/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+        <state relative-caret-position="136">
+          <caret line="31" column="100" lean-forward="false" selection-start-line="31" selection-start-column="100" selection-end-line="31" selection-end-column="100" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6804#6805#0" expanded="true" />
-            <element signature="e#6863#6864#0" expanded="true" />
-            <marker date="1519160936717" expanded="false" signature="4178:4185" ph="&lt;~&gt;" />
+            <marker date="1519224112139" expanded="false" signature="4440:4447" ph="&lt;~&gt;" />
           </folding>
         </state>
       </provider>

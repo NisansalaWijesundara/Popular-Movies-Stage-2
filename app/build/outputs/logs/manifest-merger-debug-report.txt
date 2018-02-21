@@ -92,9 +92,9 @@ ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\ap
 activity#com.example.android.popularmovies_stage1.MovieDetails
 ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:23:9-30:20
 	android:parentActivityName
-		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:25:13-55
+		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:26:13-55
 	android:label
-		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:26:13-42
+		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:25:13-42
 	android:name
 		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:24:13-41
 meta-data#android.support.PARENT_ACTIVITY

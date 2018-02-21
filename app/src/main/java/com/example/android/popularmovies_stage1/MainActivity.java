@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -26,9 +27,9 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
 
     public static final String LOG_TAG = MainActivity.class.getName();
     private static final int MOVIE_LOADER_ID = 0;
-    private static final String movie_image__url = "";
-    private static final String topRated_movies = "";
-    private static final String popular_movies = "";
+    private static final String movie_image__url = "http://api.themoviedb.org/3/discover/movie?api_key=";
+    private static final String topRated_movies = "http://api.themoviedb.org/3/movie/top_rated?api_key=";
+    private static final String popular_movies = "http://api.themoviedb.org/3/movie/popular?api_key=";
     private static List<Image> mMovieList;
     private RecyclerView mRecyclerView;
     private ImageAdapter mImageAdapter;
@@ -85,6 +86,8 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(gridLayoutManager);
         Log.v("MainActivity", "onCreateFinish2");
+
+        mLoadingIndicator = findViewById(R.id.pb_loading_indicator);
 
         loadMovieDetails(movie_image__url);
     }
@@ -222,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            mLoadingIndicator.setVisibility(View.VISIBLE);
         }
 
         @Override
@@ -241,10 +245,12 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
             }
 
 
+
         }
 
         @Override
         protected void onPostExecute(List<Image> images) {
+            mLoadingIndicator.setVisibility(View.INVISIBLE);
             if (images != null) {
                 mImageAdapter.setImageURLs(images);
                 Log.v("AsyncTaskLoader", "onPostExecute1");
