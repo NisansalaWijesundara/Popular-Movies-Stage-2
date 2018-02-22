@@ -57,8 +57,8 @@ public final class NetworkUtils {
                 JSONObject currentMovie = resultsArray.getJSONObject(i);
 
                 Image movie = new Image();
-                Log.v("NetworkUtils", "extractFeatureFromJson4.3");
-                movie.setTitle(currentMovie.getString("title"));
+
+                movie.setTitle(currentMovie.getString("original_title"));
                 movie.setReleaseDate(currentMovie.getString("release_date"));
                 movie.setVoteAvg(currentMovie.getString("vote_average"));
                 movie.setSynopsis(currentMovie.getString("overview"));
