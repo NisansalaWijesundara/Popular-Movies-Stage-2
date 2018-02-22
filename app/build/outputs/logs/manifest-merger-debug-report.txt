@@ -74,7 +74,7 @@ MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Tilan\.gradle\caches
 	android:roundIcon
 		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:14:9-54
 	android:icon
-		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:12:9-43
+		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:12:9-49
 	android:allowBackup
 		ADDED from C:\Users\Tilan\Desktop\MobApp\PopularMovies\Popular-Movies-Stage-1\app\src\main\AndroidManifest.xml:11:9-35
 	android:theme
