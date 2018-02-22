@@ -32,9 +32,9 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
 
     public static final String LOG_TAG = MainActivity.class.getName();
 
-    private static final String movie_image__url = "http://api.themoviedb.org/3/discover/movie?api_key=0090c4fcfc45046c3af17ef9b93c4b6d";
-    private static final String topRated_movies = "http://api.themoviedb.org/3/movie/top_rated?api_key=0090c4fcfc45046c3af17ef9b93c4b6d";
-    private static final String popular_movies = "http://api.themoviedb.org/3/movie/popular?api_key=0090c4fcfc45046c3af17ef9b93c4b6d";
+    private static final String movie_image__url = "http://api.themoviedb.org/3/discover/movie?api_key=";
+    private static final String topRated_movies = "http://api.themoviedb.org/3/movie/top_rated?api_key=";
+    private static final String popular_movies = "http://api.themoviedb.org/3/movie/popular?api_key=";
     private static List<Image> mMovieList;
     private RecyclerView mRecyclerView;
     private ImageAdapter mImageAdapter;
