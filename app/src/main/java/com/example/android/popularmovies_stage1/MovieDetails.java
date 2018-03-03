@@ -2,6 +2,7 @@ package com.example.android.popularmovies_stage1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ public class MovieDetails extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
@@ -41,14 +42,14 @@ public class MovieDetails extends AppCompatActivity {
         Picasso.with(this).load(bundle.getString("POSTER")).fit().centerCrop().into(mMoviePoster);
 
         mMovieReleaseDate = findViewById(R.id.release_date);
-        mMovieReleaseDate.setText("Release Date : " + bundle.getString("RELEASE_DATE"));
+        mMovieReleaseDate.setText("Release Date  : " + bundle.getString("RELEASE_DATE"));
 
         mMovieRate = findViewById(R.id.vote_average);
-        mMovieRate.setText("Vote Average : " + bundle.getString("RATE"));
+        mMovieRate.setText("Vote Average  : " + bundle.getString("RATE"));
 
         mMovieDescription = findViewById(R.id.movie_description);
         mMovieDescription.setText(bundle.getString("DESCRIPTION"));
 
-
     }
+
 }

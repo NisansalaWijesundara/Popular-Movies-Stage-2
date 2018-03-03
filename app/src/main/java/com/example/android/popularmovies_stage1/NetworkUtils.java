@@ -150,7 +150,7 @@ public final class NetworkUtils {
     }
 
 
-    public static List<Image> fetchMovieData(String requestUrl) throws JSONException {
+    public static List<Image> fetchMovieData(String requestUrl) {
 
 
         URL url = createUrl(requestUrl);

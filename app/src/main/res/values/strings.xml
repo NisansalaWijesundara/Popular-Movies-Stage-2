@@ -1,7 +1,16 @@
 <resources>
     <string name="app_name">PopularMovies-Stage1</string>
+
     <string name="popular">Popular</string>
     <string name="top_rated">Top Rated</string>
+
     <string name="no_internet_connection">No internet connection</string>
+
+    <string name="release_date">Release Date</string>
+    <string name="vote_average">Vote Average</string>
+    <string name="overview">Overview</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="name">Name</string>
+
 
 </resources>

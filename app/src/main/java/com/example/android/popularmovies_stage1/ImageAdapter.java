@@ -35,10 +35,6 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
 
     }
 
-    private Context getContext() {
-        return activity_context;
-    }
-
 
     void setImageURLs(List<Image> movieList) {
 

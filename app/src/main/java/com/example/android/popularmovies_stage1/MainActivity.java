@@ -2,10 +2,12 @@ package com.example.android.popularmovies_stage1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,8 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import org.json.JSONException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,23 +30,24 @@ import static com.example.android.popularmovies_stage1.ImageAdapter.ImageAdapter
 public class MainActivity extends AppCompatActivity implements ImageAdapterOnClickHandler {
 
 
-    public static final String LOG_TAG = MainActivity.class.getName();
-
-    private static final String movie_image__url = "http://api.themoviedb.org/3/discover/movie?api_key=";
-    private static final String topRated_movies = "http://api.themoviedb.org/3/movie/top_rated?api_key=";
-    private static final String popular_movies = "http://api.themoviedb.org/3/movie/popular?api_key=";
+    private static final String API_KEY = "";
+    private static final String movie_image__url = "http://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY;
+    private static final String topRated_movies = "http://api.themoviedb.org/3/movie/top_rated?api_key=" + API_KEY;
+    private static final String popular_movies = "http://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY;
     private static List<Image> mMovieList;
+    Parcelable mMovieState;
+    private String MOVIE_STATE_KEY;
     private RecyclerView mRecyclerView;
     private ImageAdapter mImageAdapter;
-
     private ProgressBar mLoadingIndicator;
-
     private TextView emptyStateTextView;
-
+    private GridLayoutManager gridLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_main);
 
 
@@ -65,14 +66,44 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
 
         emptyStateTextView = findViewById(R.id.empty_state);
 
-
         loadMovieDetails(movie_image__url);
-
 
     }
 
-    private void loadMovieDetails(String movie_image__url) {
-        new MovieData().execute(movie_image__url);
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+
+        super.onSaveInstanceState(outState);
+        outState.putParcelable(MOVIE_STATE_KEY, mMovieState);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        if (savedInstanceState != null)
+            mMovieState = savedInstanceState.getParcelable(MOVIE_STATE_KEY);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (mMovieState != null) {
+            gridLayoutManager.onRestoreInstanceState(mMovieState);
+        }
+
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+    }
+
+    private void loadMovieDetails(String movie_image_url) {
+        new MovieData().execute(movie_image_url);
 
     }
 
@@ -114,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected()) {
+
 
             switch (item.getItemId()) {
                 case R.id.popular:
@@ -167,13 +199,8 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
             }
 
             if (networkInfo != null && networkInfo.isConnected()) {
-                try {
-                    String posterURL = url[0];
-                    return NetworkUtils.fetchMovieData(posterURL);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return null;
-                }
+                String posterURL = url[0];
+                return NetworkUtils.fetchMovieData(posterURL);
 
             } else {
                 View loadingIndicator = findViewById(R.id.pb_loading_indicator);
@@ -198,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
             }
         }
     }
+
 
 }
 
