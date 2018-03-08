@@ -18,8 +18,13 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.android.popularmovies_stage1.util.NetworkUtils;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 import static com.example.android.popularmovies_stage1.ImageAdapter.ImageAdapterOnClickHandler;
 
@@ -30,58 +35,46 @@ import static com.example.android.popularmovies_stage1.ImageAdapter.ImageAdapter
 public class MainActivity extends AppCompatActivity implements ImageAdapterOnClickHandler {
 
 
-    private static final String API_KEY = "";
-    private static final String movie_image__url = "http://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY;
-    private static final String topRated_movies = "http://api.themoviedb.org/3/movie/top_rated?api_key=" + API_KEY;
-    private static final String popular_movies = "http://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY;
-    private static List<Image> mMovieList;
-    Parcelable mMovieState;
+    @BindView(R.id.recyclerview_movies)
+    RecyclerView mRecyclerView;
+    @BindView(R.id.pb_loading_indicator)
+    ProgressBar mLoadingIndicator;
+    @BindView(R.id.empty_state)
+    TextView emptyStateTextView;
+    private String API_KEY = "";
+    private String movie_image__url = "http://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY;
+    private String topRated_movies = "http://api.themoviedb.org/3/movie/top_rated?api_key=" + API_KEY;
+    private String popular_movies = "http://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY;
+    private List<Image> mMovieList;
+    private Parcelable mMovieState;
     private String MOVIE_STATE_KEY;
-    private RecyclerView mRecyclerView;
     private ImageAdapter mImageAdapter;
-    private ProgressBar mLoadingIndicator;
-    private TextView emptyStateTextView;
     private GridLayoutManager gridLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_main);
-
-
-        mRecyclerView = findViewById(R.id.recyclerview_movies);
-
+        ButterKnife.bind(this);
 
         mImageAdapter = new ImageAdapter(this, this);
         mRecyclerView.setAdapter(mImageAdapter);
 
-
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(gridLayoutManager);
 
-
-        mLoadingIndicator = findViewById(R.id.pb_loading_indicator);
-
-        emptyStateTextView = findViewById(R.id.empty_state);
-
         loadMovieDetails(movie_image__url);
-
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-
         super.onSaveInstanceState(outState);
         outState.putParcelable(MOVIE_STATE_KEY, mMovieState);
-
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-
         if (savedInstanceState != null)
             mMovieState = savedInstanceState.getParcelable(MOVIE_STATE_KEY);
     }
@@ -89,22 +82,18 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
     @Override
     protected void onResume() {
         super.onResume();
-
         if (mMovieState != null) {
             gridLayoutManager.onRestoreInstanceState(mMovieState);
         }
-
     }
 
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
-
     }
 
     private void loadMovieDetails(String movie_image_url) {
         new MovieData().execute(movie_image_url);
-
     }
 
 
@@ -116,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         Intent intentToStartDetailActivity = new Intent(context, destinationClass);
 
         Bundle bundle = new Bundle();
-
         bundle.putString("POSTER_NAME", thisMovie.getTitle());
         bundle.putString("POSTER", thisMovie.getImage());
         bundle.putString("RELEASE_DATE", thisMovie.getReleaseDate());
@@ -125,12 +113,10 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
 
         intentToStartDetailActivity.putExtras(bundle);
         startActivity(intentToStartDetailActivity);
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.selection, menu);
         return true;
@@ -140,33 +126,24 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
     public boolean onOptionsItemSelected(MenuItem item) {
 
         ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
 
         if (networkInfo != null && networkInfo.isConnected()) {
-
-
             switch (item.getItemId()) {
                 case R.id.popular:
                     loadMovieDetails(popular_movies);
                     return true;
 
-
                 case R.id.topRated:
                     loadMovieDetails(topRated_movies);
                     return true;
 
-
                 default:
-
             }
 
         } else {
             View loadingIndicator = findViewById(R.id.pb_loading_indicator);
             loadingIndicator.setVisibility(View.GONE);
-
-
             emptyStateTextView.setText(R.string.no_internet_connection);
         }
         return super.onOptionsItemSelected(item);
@@ -188,45 +165,35 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         protected List<Image> doInBackground(String... url) {
 
             ConnectivityManager connMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-
-
             NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-
 
             if (mMovieList == null) {
                 mLoadingIndicator.setVisibility(View.VISIBLE);
                 return null;
             }
-
             if (networkInfo != null && networkInfo.isConnected()) {
                 String posterURL = url[0];
                 return NetworkUtils.fetchMovieData(posterURL);
-
             } else {
                 View loadingIndicator = findViewById(R.id.pb_loading_indicator);
                 loadingIndicator.setVisibility(View.GONE);
                 emptyStateTextView.setText(R.string.no_internet_connection);
             }
-
             return null;
         }
 
         @Override
         protected void onPostExecute(List<Image> images) {
-
             if (images != null) {
                 mImageAdapter.setImageURLs(images);
                 mRecyclerView.setAdapter(mImageAdapter);
                 mImageAdapter.notifyDataSetChanged();
                 mLoadingIndicator.setVisibility(View.GONE);
-
             } else {
                 return;
             }
         }
     }
-
-
 }
 
 

@@ -1,7 +1,10 @@
-package com.example.android.popularmovies_stage1;
+package com.example.android.popularmovies_stage1.util;
 
 import android.text.TextUtils;
 import android.util.Log;
+
+import com.example.android.popularmovies_stage1.Image;
+import com.example.android.popularmovies_stage1.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +33,7 @@ public final class NetworkUtils {
 
 
     private NetworkUtils() {
+        throw new AssertionError("No instances");
     }
 
     /**
