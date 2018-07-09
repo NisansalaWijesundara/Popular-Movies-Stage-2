@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PopularMovies-Stage1</string>
+    <string name="app_name">PopularMovies-Stage2</string>
 
     <string name="popular">Popular</string>
     <string name="top_rated">Top Rated</string>
@@ -11,6 +11,7 @@
     <string name="overview">Overview</string>
     <string name="synopsis">Synopsis</string>
     <string name="name">Name</string>
+    <string name="action_setting">Settings</string>
 
 
 </resources>

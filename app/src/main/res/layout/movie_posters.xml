@@ -5,6 +5,9 @@
     android:layout_gravity="center"
     android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <!--load the images of the movies-->
     <ImageView
         android:id="@+id/movie_poster"
@@ -15,5 +18,15 @@
         android:padding="5dp"
         android:scaleType="fitXY" />
 
-
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:onClick="displayTitle"
+            android:text="title"
+            android:textColor="@color/white" />
+    </RelativeLayout>
 </LinearLayout>
