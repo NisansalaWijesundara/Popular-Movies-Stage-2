@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * Created by Nisansala on 12/26/2017.
- *
+ * <p>
  * Class helps to perform the HTTP request and parse response.
  */
 
@@ -40,44 +40,84 @@ public final class NetworkUtils {
      * Return a list of {@link Image} objects that has been built up from
      * parsing the given JSON response.
      */
-    private static List<Image> extractFeatureFromJson(String movieJSON) {
-
-
+    private static List<Image> extractFeatureFromJson(String movieJSON, String apiKey) {
         if (TextUtils.isEmpty(movieJSON)) {
             return null;
         }
-
-
         List<Image> images = new ArrayList<>();
-
-
         try {
-
             JSONObject baseJsonResponse = new JSONObject(movieJSON);
             JSONArray resultsArray = baseJsonResponse.getJSONArray("results");
-
             for (int i = 0; i < resultsArray.length(); i++) {
-
                 JSONObject currentMovie = resultsArray.getJSONObject(i);
-
                 Image movie = new Image();
-
+                movie.setId(currentMovie.getString("id"));
                 movie.setTitle(currentMovie.getString("original_title"));
                 movie.setReleaseDate(currentMovie.getString("release_date"));
                 movie.setVoteAvg(currentMovie.getString("vote_average"));
                 movie.setSynopsis(currentMovie.getString("overview"));
                 movie.setImage("http://image.tmdb.org/t/p/w342/" + currentMovie.getString("poster_path"));
+                movie.setTrailerLink("http://api.themoviedb.org/3/movie/" + currentMovie.getString("id") + "/videos?api_key=" + apiKey);
+                movie.setReviewLink("http://api.themoviedb.org/3/movie/" + currentMovie.getString("id") + "/reviews?api_key=" + apiKey);
+                String author = null, content = null, review_URL = null, youtube_URL = null;
+                try {
+                    String review_JSON = makeHttpRequest(createUrl(movie.getReviewLink()));
+                    JSONObject baseJsonResponse_reviews = new JSONObject(review_JSON);
+                    JSONArray reviews_array = baseJsonResponse_reviews.getJSONArray("results");
+                    JSONObject review = null;
+                    try {
+                        review = reviews_array.getJSONObject(0);
+                        author = review.getString("author");
+                        content = review.getString("content");
+                        review_URL = review.getString("url");
+                        movie.setReviewContent(content);
+                        movie.setReviewAuthor(author);
+                        movie.setReviewLink(review_URL);
 
 
-                images.add(movie);
+                    } catch (JSONException e) {
+                        Log.e(LOG_TAG, "No review.");
+                        author = null;
+                        content = null;
+                        review_URL = null;
+                        movie.setReviewContent(content);
+                        movie.setReviewAuthor(author);
+                        movie.setReviewLink(review_URL);
+
+                    }
+                    String trailer_JSON = makeHttpRequest(createUrl(movie.getTrailerLink()));
+                    JSONObject baseJsonResponse_trailer = new JSONObject(trailer_JSON);
+                    JSONArray trailers_array = baseJsonResponse_trailer.getJSONArray("results");
+                    try {
+                        JSONObject trailer = trailers_array.getJSONObject(0);
+                        String youtube_key = trailer.getString("key");
+                        youtube_URL = "https://www.youtube.com/watch?v=" + youtube_key;
+                        movie.setTrailerLink(youtube_URL);
+
+                    } catch (JSONException e) {
+                        Log.e(LOG_TAG, "No trailer.");
+                        youtube_URL = null;
+                        movie.setTrailerLink(youtube_URL);
+                    }
+
+
+                } catch (IOException e) {
+                    Log.e(LOG_TAG, "Problem with trailer/reviews.");
+                    e.printStackTrace();
+
+                } finally {
+                    images.add(movie);
+                }
+
 
             }
         } catch (JSONException e) {
             Log.e("QueryUtils", "Problem parsing the JSON results", e);
         }
-
         return images;
+
     }
+
 
     /**
      * Returns new URL object from the given string URL.
@@ -97,12 +137,9 @@ public final class NetworkUtils {
      */
     private static String makeHttpRequest(URL url) throws IOException {
         String jsonResponse = "";
-
-
         if (url == null) {
             return jsonResponse;
         }
-
         HttpURLConnection urlConnection = null;
         InputStream inputStream = null;
         try {
@@ -111,8 +148,6 @@ public final class NetworkUtils {
             urlConnection.setConnectTimeout(15000 /* milliseconds */);
             urlConnection.setRequestMethod("GET");
             urlConnection.connect();
-
-
             if (urlConnection.getResponseCode() == 200) {
                 inputStream = urlConnection.getInputStream();
                 jsonResponse = readFromStream(inputStream);
@@ -126,11 +161,9 @@ public final class NetworkUtils {
                 urlConnection.disconnect();
             }
             if (inputStream != null) {
-
                 inputStream.close();
             }
         }
-
         return jsonResponse;
 
     }
@@ -154,12 +187,8 @@ public final class NetworkUtils {
     }
 
 
-    public static List<Image> fetchMovieData(String requestUrl) {
-
-
+    public static List<Image> fetchMovieData(String requestUrl, String apiKey) {
         URL url = createUrl(requestUrl);
-
-
         String jsonResponse = null;
         try {
             jsonResponse = makeHttpRequest(url);
@@ -167,11 +196,9 @@ public final class NetworkUtils {
         } catch (IOException e) {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
-
-
-        List<Image> images = extractFeatureFromJson(jsonResponse);
-
-
+        List<Image> images = extractFeatureFromJson(jsonResponse, apiKey);
         return images;
     }
+
+
 }

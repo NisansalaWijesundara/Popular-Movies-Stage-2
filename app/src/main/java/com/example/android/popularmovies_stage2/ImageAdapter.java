@@ -21,7 +21,6 @@ import java.util.List;
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapterViewHolder> {
 
 
-
     private final ImageAdapterOnClickHandler mClickHandler;
     private ArrayList<String> imageURLs = new ArrayList<>(30);
     private Context activity_context;

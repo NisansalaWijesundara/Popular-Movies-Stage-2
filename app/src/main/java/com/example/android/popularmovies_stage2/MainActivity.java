@@ -37,7 +37,7 @@ import static com.example.android.popularmovies_stage2.ImageAdapter.ImageAdapter
 public class MainActivity extends AppCompatActivity implements ImageAdapterOnClickHandler, LoaderManager.LoaderCallbacks<List<Image>> {
 
 
-    private static final String API_KEY = "";
+    public static final String API_KEY = "";
     private static final String movie_image__url = "http://api.themoviedb.org/3/discover/movie?api_key=" + API_KEY;
     private static final String topRated_movies = "http://api.themoviedb.org/3/movie/top_rated?api_key=" + API_KEY;
     private static final String popular_movies = "http://api.themoviedb.org/3/movie/popular?api_key=" + API_KEY;
@@ -114,11 +114,16 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         Intent intentToStartDetailActivity = new Intent(context, destinationClass);
 
         Bundle bundle = new Bundle();
+        bundle.putString("ID", thisMovie.getId());
         bundle.putString("POSTER_NAME", thisMovie.getTitle());
         bundle.putString("POSTER", thisMovie.getImage());
         bundle.putString("RELEASE_DATE", thisMovie.getReleaseDate());
         bundle.putString("RATE", thisMovie.getVoteAvg());
         bundle.putString("DESCRIPTION", thisMovie.getSynopsis());
+        bundle.putString("REVIEW_AUTHOR", thisMovie.getReviewAuthor());
+        bundle.putString("REVIEW_CONTENT", thisMovie.getReviewContent());
+        bundle.putString("REVIEW_URL", thisMovie.getReviewLink());
+        bundle.putString("YOUTUBE_URL", thisMovie.getTrailerLink());
 
         intentToStartDetailActivity.putExtras(bundle);
         startActivity(intentToStartDetailActivity);
@@ -203,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
             }
             if (networkInfo != null && networkInfo.isConnected()) {
                 String posterURL = url[0];
-                return NetworkUtils.fetchMovieData(posterURL);
+                return NetworkUtils.fetchMovieData(posterURL, API_KEY);
             } else {
                 View loadingIndicator = findViewById(R.id.pb_loading_indicator);
                 loadingIndicator.setVisibility(View.GONE);

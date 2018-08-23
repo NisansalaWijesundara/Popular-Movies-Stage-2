@@ -62,6 +62,7 @@
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:text="@string/overview"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
@@ -70,11 +71,110 @@
                 android:id="@+id/movie_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:gravity="start"
                 android:text="@string/synopsis"
                 android:textAlignment="textStart"
                 android:textColor="@color/white"
                 android:textSize="20sp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerview_trailers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/movie_trailers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/trailers"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+
+                <ImageButton
+                    android:id="@+id/trailer_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:src="@android:drawable/ic_media_play"
+                    android:tint="@color/colorAccent" />
+
+
+                <TextView
+                    android:id="@+id/trailers_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="@dimen/margin_normal"
+                    android:ellipsize="end"
+                    android:maxLines="2" />
+
+                <ListView
+                    android:id="@+id/trailer_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_normal"
+                    android:layout_marginStart="@dimen/margin_normal"
+                    android:layout_marginTop="@dimen/margin_normal" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/reviews"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="@string/reviews"
+                android:textAlignment="textStart"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/review_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_margin="@dimen/margin_normal"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/review_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/review_author"
+                android:layout_margin="@dimen/margin_normal"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+            <ListView
+                android:id="@+id/reviews_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="false" />
+        </LinearLayout>
 
     </LinearLayout>
 </ScrollView>

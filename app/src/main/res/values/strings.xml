@@ -12,6 +12,9 @@
     <string name="synopsis">Synopsis</string>
     <string name="name">Name</string>
     <string name="action_setting">Settings</string>
+    <string name="trailer">Trailers</string>
+    <string name="trailers">Trailers</string>
+    <string name="reviews">Reviews</string>
 
 
 </resources>

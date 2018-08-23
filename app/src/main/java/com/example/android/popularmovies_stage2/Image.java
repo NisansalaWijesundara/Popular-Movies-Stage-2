@@ -14,9 +14,13 @@ public class Image {
     private String synopsis;
 
     private String image;
+    private String id;
+    private String trailerLink;
+    private String reviewLink;
+    private String reviewAuthor;
+    private String reviewContent;
 
     public Image() {
-
     }
 
 
@@ -60,5 +64,45 @@ public class Image {
     public void setImage(String image) {
 
         this.image = image;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getTrailerLink() {
+        return trailerLink;
+    }
+
+    public void setTrailerLink(String trailerLink) {
+        this.trailerLink = trailerLink;
+    }
+
+    public String getReviewLink() {
+        return reviewLink;
+    }
+
+    public void setReviewLink(String reviewLink) {
+        this.reviewLink = reviewLink;
+    }
+
+    public String getReviewAuthor() {
+        return reviewAuthor;
+    }
+
+    public void setReviewAuthor(String reviewAuthor) {
+        this.reviewAuthor = reviewAuthor;
+    }
+
+    public String getReviewContent() {
+        return reviewContent;
+    }
+
+    public void setReviewContent(String reviewContent) {
+        this.reviewContent = reviewContent;
     }
 }
