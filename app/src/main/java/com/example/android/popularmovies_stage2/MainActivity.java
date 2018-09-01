@@ -151,7 +151,9 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
                 case R.id.topRated:
                     loadMovieDetails(topRated_movies);
                     return true;
-
+                case R.id.favourite:
+                    loadMovieDetails(topRated_movies);
+                    return true;
                 default:
             }
 

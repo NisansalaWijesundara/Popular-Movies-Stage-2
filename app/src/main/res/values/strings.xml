@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">PopularMovies-Stage2</string>
+    <string name="app_name">PopularMovies</string>
 
     <string name="popular">Popular</string>
-    <string name="top_rated">Top Rated</string>
+    <string name="top_rated">Top</string>
+    <string name="favourite">Favourite</string>
 
     <string name="no_internet_connection">No internet connection</string>
 
