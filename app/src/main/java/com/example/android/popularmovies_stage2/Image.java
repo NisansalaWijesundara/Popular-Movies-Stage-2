@@ -19,8 +19,11 @@ public class Image {
     private String reviewLink;
     private String reviewAuthor;
     private String reviewContent;
-
+    private byte[] moviePosterDb;
     public Image() {
+    }
+
+    public Image(String title, String releaseDate, String voteAvg, String synopsis, byte[] moviePosterDb, String trailerLink, String reviewLink, String reviewAuthor, String reviewContent) {
     }
 
 

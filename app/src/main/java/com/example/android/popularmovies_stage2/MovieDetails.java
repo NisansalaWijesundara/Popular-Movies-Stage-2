@@ -1,10 +1,15 @@
 package com.example.android.popularmovies_stage2;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -15,10 +20,13 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.android.popularmovies_stage2.data.MovieContract;
 import com.example.android.popularmovies_stage2.util.NetworkReviewUtils;
 import com.example.android.popularmovies_stage2.util.NetworkTrailerUtils;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,31 +53,24 @@ public class MovieDetails extends AppCompatActivity {
     private ListView mReviewsListView;
     private TextView movie_review_content;
     private TextView movie_review_author;
+    private FloatingActionButton favoriteMovieButton;
+    private byte[] movie_poster;
+    private SQLiteDatabase mDb;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
-
-
-
         Intent intent = getIntent();
         final Bundle bundle = intent.getExtras();
-
         mMovieName = findViewById(R.id.movie_title);
         mMovieName.setText(bundle.getString("POSTER_NAME"));
-
-
         mMoviePoster = findViewById(R.id.movie_image);
         Picasso.with(this).load(bundle.getString("POSTER")).fit().centerCrop().into(mMoviePoster);
-
         mMovieReleaseDate = findViewById(R.id.release_date);
         mMovieReleaseDate.setText("Release Date  : " + bundle.getString("RELEASE_DATE"));
-
         mMovieRate = findViewById(R.id.vote_average);
         mMovieRate.setText("Vote Average  : " + bundle.getString("RATE"));
-
         mMovieDescription = findViewById(R.id.movie_description);
         mMovieDescription.setText(bundle.getString("DESCRIPTION"));
         mTrailersListView = findViewById(R.id.trailer_list);
@@ -123,8 +124,65 @@ public class MovieDetails extends AppCompatActivity {
 
 
         });
+        favoriteMovieButton = findViewById(R.id.favourite_fab);
+        favoriteMovieButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saveMovie(bundle);
+            }
+        });
 
 
+    }
+
+    private void saveMovie(Bundle bundle) {
+        String movie_id = bundle.getString("ID");
+        String movieName = bundle.getString("POSTER_NAME");
+        Picasso.with(this).load(bundle.getString("POSTER")).into(new Target() {
+            @Override
+            public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                movie_poster = stream.toByteArray();
+            }
+
+            @Override
+            public void onBitmapFailed(Drawable errorDrawable) {
+            }
+
+            @Override
+            public void onPrepareLoad(Drawable placeHolderDrawable) {
+            }
+        });
+        String movieRating = bundle.getString("RATE");
+        String movieTrailer = bundle.getString("YOUTUBE_URL");
+        String movieReleaseDate = bundle.getString("RELEASE_DATE");
+        String movieSynopsis = bundle.getString("DESCRIPTION");
+        String movieReviewContent = bundle.getString("REVIEW_CONTENT");
+        String movieReviewAuthor = bundle.getString("REVIEW_AUTHOR");
+        String movieReviewLink = bundle.getString("REVIEW_URL");
+        ContentValues values = new ContentValues();
+        values.put(MovieContract.MoviesEntry.COLUMN_MOVIE_ID, movie_id);
+        values.put(MovieContract.MoviesEntry.COLUMN_TITLE, movieName);
+        values.put(MovieContract.MoviesEntry.COLUMN_PORTER_URI, movie_poster);
+        values.put(MovieContract.MoviesEntry.COLUMN_VOTE_AVERAGE, movieRating);
+        values.put(MovieContract.MoviesEntry.COLUMN_RELEASE_DATE, movieReleaseDate);
+        values.put(MovieContract.MoviesEntry.COLUMN_OVERVIEW, movieSynopsis);
+        values.put(MovieContract.TrailersEntry.COLUMN_TRAILER_LINK, movieTrailer);
+        values.put(MovieContract.ReviewsEntry.COLUMN_CONTENT, movieReviewContent);
+        values.put(MovieContract.ReviewsEntry.COLUMN_AUTHOR, movieReviewAuthor);
+        values.put(MovieContract.ReviewsEntry.COLUMN_REVIEW_LINK, movieReviewLink);
+        Uri newUri = getContentResolver().insert(MovieContract.MoviesEntry.CONTENT_URI, values);
+        Uri trailerUri = getContentResolver().insert(MovieContract.TrailersEntry.CONTENT_URI, values);
+        Uri reviewUri = getContentResolver().insert(MovieContract.ReviewsEntry.CONTENT_URI, values);
+        if (newUri == null && trailerUri == null && reviewUri == null) {
+            // If the new content URI is null, then there was an error with insertion.
+            Toast.makeText(this, "Insertion failed. Already added.", Toast.LENGTH_SHORT).show();
+        } else {
+            // Otherwise, the insertion was successful and we can display a toast.
+            Toast.makeText(this, "Inserted item", Toast.LENGTH_SHORT).show();
+        }
+        //finish();
     }
 
     public class ReviewClass extends AsyncTask<String, Void, List<Review>> {

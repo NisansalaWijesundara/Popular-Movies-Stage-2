@@ -32,7 +32,7 @@ public class MovieContract {
                         PATH_MOVIES;
 
         public static final String TABLE_NAME = "movies";
-
+        public static final String COLUMN_MOVIE_ID = "movie_id";
         public static final String COLUMN_TITLE = "title";
         public static final String COLUMN_RELEASE_DATE = "release_date";
         public static final String COLUMN_VOTE_AVERAGE = "vote_average";
@@ -57,9 +57,11 @@ public class MovieContract {
                         PATH_TRAILERS;
 
         public static final String TABLE_NAME = "trailers";
+        public static final String _ID = "_id";
         public static final String COLUMN_MOVIE_ID = "movie_id";
         public static final String COLUMN_KEY = "key";
         public static final String COLUMN_NAME = "name";
+        public static final String COLUMN_TRAILER_LINK = "trailer_link";
 
         public static Uri buildVideosUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);
@@ -82,6 +84,7 @@ public class MovieContract {
         public static final String COLUMN_MOVIE_ID = "movie_id";
         public static final String COLUMN_AUTHOR = "author";
         public static final String COLUMN_CONTENT = "content";
+        public static final String COLUMN_REVIEW_LINK = "review_link";
 
         public static Uri buildReviewsUri(long id) {
             return ContentUris.withAppendedId(CONTENT_URI, id);

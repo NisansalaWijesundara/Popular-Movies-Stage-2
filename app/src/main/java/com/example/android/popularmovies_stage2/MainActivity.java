@@ -3,12 +3,13 @@ package com.example.android.popularmovies_stage2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
@@ -34,7 +35,7 @@ import static com.example.android.popularmovies_stage2.ImageAdapter.ImageAdapter
 * Class displays the popular & top rated movie posters.
 * */
 
-public class MainActivity extends AppCompatActivity implements ImageAdapterOnClickHandler, LoaderManager.LoaderCallbacks<List<Image>> {
+public class MainActivity extends AppCompatActivity implements ImageAdapterOnClickHandler, android.support.v4.app.LoaderManager.LoaderCallbacks<Cursor> {
 
 
     public static final String API_KEY = "";
@@ -55,6 +56,8 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
     private GridLayoutManager gridLayoutManager;
     private TextView mMovieName;
     private Image movieImage;
+    private SQLiteDatabase mDb;
+    private Boolean dbMovies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +70,6 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         mRecyclerView.setLayoutManager(gridLayoutManager);
-        int loaderId = MOVIES_LOADER_ID;
-        LoaderManager.LoaderCallbacks<List<Image>> callback = MainActivity.this;
-        Bundle bundleForLoader = new Bundle();
-        getSupportLoaderManager().initLoader(loaderId, bundleForLoader, callback);
         loadMovieDetails(movie_image__url);
 
     }
@@ -145,16 +144,23 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
         if (networkInfo != null && networkInfo.isConnected()) {
             switch (item.getItemId()) {
                 case R.id.popular:
+                    dbMovies = false;
                     loadMovieDetails(popular_movies);
                     return true;
 
                 case R.id.topRated:
+                    dbMovies = false;
                     loadMovieDetails(topRated_movies);
                     return true;
+
                 case R.id.favourite:
-                    loadMovieDetails(topRated_movies);
+                    dbMovies = true;
+                    //getSupportLoaderManager().initLoader(1, null,  this);
                     return true;
                 default:
+                    dbMovies = false;
+                    loadMovieDetails(popular_movies);
+                    return true;
             }
 
         }
@@ -173,16 +179,19 @@ public class MainActivity extends AppCompatActivity implements ImageAdapterOnCli
     }
 
     @Override
-    public Loader<List<Image>> onCreateLoader(int id, final Bundle args) {
+    public android.support.v4.content.Loader<Cursor> onCreateLoader(int id, Bundle args) {
+        mLoadingIndicator.setVisibility(View.VISIBLE);
+        mRecyclerView.setVisibility(View.GONE);
         return null;
     }
 
     @Override
-    public void onLoadFinished(Loader<List<Image>> loader, List<Image> data) {
+    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
+
     }
 
     @Override
-    public void onLoaderReset(Loader<List<Image>> loader) {
+    public void onLoaderReset(Loader<Cursor> loader) {
     }
 
 
