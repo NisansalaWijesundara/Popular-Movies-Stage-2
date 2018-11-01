@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -62,11 +63,13 @@ public class MovieDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_details);
         Intent intent = getIntent();
+
         final Bundle bundle = intent.getExtras();
+        Boolean loadFromDB = bundle.getBoolean("LOAD_FROM_DATABASE");
         mMovieName = findViewById(R.id.movie_title);
         mMovieName.setText(bundle.getString("POSTER_NAME"));
         mMoviePoster = findViewById(R.id.movie_image);
-        Picasso.with(this).load(bundle.getString("POSTER")).fit().centerCrop().into(mMoviePoster);
+        //Picasso.with(this).load(bundle.getString("POSTER")).fit().centerCrop().into(mMoviePoster);
         mMovieReleaseDate = findViewById(R.id.release_date);
         mMovieReleaseDate.setText("Release Date  : " + bundle.getString("RELEASE_DATE"));
         mMovieRate = findViewById(R.id.vote_average);
@@ -124,26 +127,52 @@ public class MovieDetails extends AppCompatActivity {
 
 
         });
-        favoriteMovieButton = findViewById(R.id.favourite_fab);
+       /* favoriteMovieButton = findViewById(R.id.favourite_fab);
         favoriteMovieButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 saveMovie(bundle);
+                // finish();
             }
         });
+    }*/
+      if(loadFromDB==false) {
+            Picasso.with(this).load(bundle.getString("POSTER")).fit().centerCrop().into(mMoviePoster);
+            favoriteMovieButton = findViewById(R.id.favourite_fab);
+            favoriteMovieButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    saveMovie(bundle);
+                }
+            });
+            ReviewClass review = new ReviewClass();
+            review.execute(bundle.getString("ID"));
+            TrailerClass trailer = new TrailerClass();
+            trailer.execute(bundle.getString("ID"));
+        }
+        if(loadFromDB==true){
+            byte[] bitmapData = bundle.getByteArray("POSTER");
+            if(bitmapData!=null) {
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bitmapData, 0, bitmapData.length);
+                mMoviePoster.setImageBitmap(bitmap);
+            }
 
-
+        }
     }
+
 
     private void saveMovie(Bundle bundle) {
         String movie_id = bundle.getString("ID");
         String movieName = bundle.getString("POSTER_NAME");
         Picasso.with(this).load(bundle.getString("POSTER")).into(new Target() {
+
             @Override
             public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                 ByteArrayOutputStream stream = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
                 movie_poster = stream.toByteArray();
+
+
             }
 
             @Override
@@ -154,6 +183,7 @@ public class MovieDetails extends AppCompatActivity {
             public void onPrepareLoad(Drawable placeHolderDrawable) {
             }
         });
+
         String movieRating = bundle.getString("RATE");
         String movieTrailer = bundle.getString("YOUTUBE_URL");
         String movieReleaseDate = bundle.getString("RELEASE_DATE");
@@ -168,14 +198,19 @@ public class MovieDetails extends AppCompatActivity {
         values.put(MovieContract.MoviesEntry.COLUMN_VOTE_AVERAGE, movieRating);
         values.put(MovieContract.MoviesEntry.COLUMN_RELEASE_DATE, movieReleaseDate);
         values.put(MovieContract.MoviesEntry.COLUMN_OVERVIEW, movieSynopsis);
-        values.put(MovieContract.TrailersEntry.COLUMN_TRAILER_LINK, movieTrailer);
+        values.put(MovieContract.MoviesEntry.COLUMN_TRAILER_LINK, movieTrailer);
+        values.put(MovieContract.MoviesEntry.COLUMN_REVIEW_LINK, movieReviewLink);
+        values.put(MovieContract.MoviesEntry.COLUMN_AUTHOR, movieReviewAuthor);
+        values.put(MovieContract.MoviesEntry.COLUMN_CONTENT, movieReviewContent);
+     /*   values.put(MovieContract.TrailersEntry.COLUMN_TRAILER_LINK, movieTrailer);
         values.put(MovieContract.ReviewsEntry.COLUMN_CONTENT, movieReviewContent);
         values.put(MovieContract.ReviewsEntry.COLUMN_AUTHOR, movieReviewAuthor);
-        values.put(MovieContract.ReviewsEntry.COLUMN_REVIEW_LINK, movieReviewLink);
+        values.put(MovieContract.ReviewsEntry.COLUMN_REVIEW_LINK, movieReviewLink);*/
         Uri newUri = getContentResolver().insert(MovieContract.MoviesEntry.CONTENT_URI, values);
-        Uri trailerUri = getContentResolver().insert(MovieContract.TrailersEntry.CONTENT_URI, values);
-        Uri reviewUri = getContentResolver().insert(MovieContract.ReviewsEntry.CONTENT_URI, values);
-        if (newUri == null && trailerUri == null && reviewUri == null) {
+       // Uri trailerUri = getContentResolver().insert(MovieContract.TrailersEntry.CONTENT_URI, values);
+      //  Uri reviewUri = getContentResolver().insert(MovieContract.ReviewsEntry.CONTENT_URI, values);
+      //  if (newUri == null && trailerUri == null && reviewUri == null) {
+        if (newUri == null){
             // If the new content URI is null, then there was an error with insertion.
             Toast.makeText(this, "Insertion failed. Already added.", Toast.LENGTH_SHORT).show();
         } else {

@@ -1,7 +1,10 @@
 package com.example.android.popularmovies_stage2;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,11 +24,12 @@ import java.util.List;
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapterViewHolder> {
 
 
+    private static final String LOG_TAG = ImageAdapter.class.getName();
     private final ImageAdapterOnClickHandler mClickHandler;
     private ArrayList<String> imageURLs = new ArrayList<>(30);
     private Context activity_context;
     private List<Image> movies;
-
+    private ArrayList<Image> dbMovieList=null;
 
     public ImageAdapter(Context applicationContext, ImageAdapterOnClickHandler handler) {
 
@@ -49,6 +53,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
             notifyDataSetChanged();
 
         }
+        dbMovieList=null;
     }
 
     @Override
@@ -69,8 +74,11 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
     @Override
     public void onBindViewHolder(ImageAdapterViewHolder holder, int position) {
 
-        if (imageURLs == null) {
-            holder.moviePoster.setImageResource(R.mipmap.ic_launcher);
+        if ( dbMovieList !=null) {
+            Image currentMovie = dbMovieList.get(position);
+            byte[] bitmapData = currentMovie.getmoviePosterDb();
+            Bitmap bitmap = BitmapFactory.decodeByteArray(bitmapData, 0, bitmapData.length);
+            holder.moviePoster.setImageBitmap(bitmap);
 
         } else {
 
@@ -85,11 +93,19 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
     @Override
     public int getItemCount() {
 
-        if (imageURLs == null) {
-            return 0;
+        if (dbMovieList == null) {
+            return imageURLs.size();
         }
 
-        return imageURLs.size();
+       else return dbMovieList.size();
+    }
+
+    public void setImageBitmaps(ArrayList<Image> movieLists) {
+        dbMovieList = movieLists;
+        if(dbMovieList == null){
+            Log.e(LOG_TAG, "movieList from DB passed as null");
+        }
+        imageURLs=null;
     }
 
     public interface ImageAdapterOnClickHandler {
@@ -117,8 +133,14 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageAdapter
         public void onClick(View view) {
 
             int adapterPosition = getAdapterPosition();
-            Image movieData = movies.get(adapterPosition);
-            mClickHandler.onClick(movieData);
+
+            if(imageURLs!=null) {
+                Image movieDetails = movies.get(adapterPosition);
+                mClickHandler.onClick(movieDetails);
+            }
+            else{
+            Image movieData = dbMovieList.get(adapterPosition);
+            mClickHandler.onClick(movieData);}
 
         }
     }

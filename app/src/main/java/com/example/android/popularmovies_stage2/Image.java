@@ -1,5 +1,7 @@
 package com.example.android.popularmovies_stage2;
 
+import android.graphics.Bitmap;
+
 /**
  * Created by Nisansala on 12/24/2017.
  * The com.example.android.popularmovies_stage1.
@@ -20,10 +22,20 @@ public class Image {
     private String reviewAuthor;
     private String reviewContent;
     private byte[] moviePosterDb;
+    private Bitmap poster;
     public Image() {
     }
 
     public Image(String title, String releaseDate, String voteAvg, String synopsis, byte[] moviePosterDb, String trailerLink, String reviewLink, String reviewAuthor, String reviewContent) {
+        this.title = title;
+        this.releaseDate = releaseDate;
+        this.voteAvg = voteAvg;
+        this.synopsis = synopsis;
+        this.moviePosterDb = moviePosterDb;
+        this.reviewAuthor = reviewAuthor;
+        this.reviewContent = reviewContent;
+        this.reviewLink = reviewLink;
+        this.trailerLink = trailerLink;
     }
 
 
@@ -108,4 +120,9 @@ public class Image {
     public void setReviewContent(String reviewContent) {
         this.reviewContent = reviewContent;
     }
+    public void setmoviePosterDb(byte[] moviePosterDb){ this.moviePosterDb = moviePosterDb;}
+
+    public byte[] getmoviePosterDb(){ return moviePosterDb;}
+
+
 }
